@@ -2,62 +2,31 @@
  * @author Sana Talwar
  * @version 1.0
  */
-public class SortedListInterface<T> {
-	/** 
-	 * Add an entry to the end of the list
-	 * List size increased by one
-	 * Other entry positions, will be unaffected
-	 * @param item (the object added)
-	 */
-	  public void add(T item);
-	  
-	  /**
-	   * Add an entry at a specified position of the list
-	   * List size will be incremented by one
-	   * Other item positions at or below specified position will be affected
-	   * @param item
-	   * @param position  - where item is added
-	   * @throw IndexOutOfBoundsException if either position < 1 or position > getLength +1 
+public interface SortedListInterface<T> {
+	
+	/**
+	   * @return element at index
+	   * @param int index 
 	   */
-	  public void add (int position, T item);
-	  
-	  /**
-	   * Remove an entry from the list at specified position
-	   * @param position
-	   * @return item at specified position
+	public T get(int index);
+	
+	/**
+	   * adds a new entry to the list at index
+	   * shifts other values
+	   * @param T new Object 
+	   * @param index - position to add at
 	   */
-	  public T remove(int position);
-	  
-	  /**
-	   * Gets item at specified position
-	   *@param position
-	   *@return Item at that position
-	   *@throws IndexOutofBounds if List is empty 
-	   */
-	  public T view (int position);
-	  
-	  /**
-	   * Checks if list is contains any elements
+	public void add(int index, T newEntry);
+	
+	/**
+	   * adds a new entry to the list
 	   * @return T/F
+	   * @param T 
 	   */
-	  public boolean isEmpty();
-	  
-	  /**
-	   * Removes all elements from the list
-	   */
-	  public void clear();	
-	  
-	  /**
-	   * Checks to find item in list
-	   * @return T/F
-	   * @param item
-	   * @return
-	   */
-	  public boolean contains(T item);
+	public boolean add(T newEntry);
 	  
 	  /**
 	   * @return int num of elements in list
-	   * @return
 	   */
 	  public int size();
 
