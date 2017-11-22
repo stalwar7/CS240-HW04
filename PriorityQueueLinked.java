@@ -1,11 +1,9 @@
-public class PriorityQueueLinked implements Comparable<PriorityQueueLinked>
-{
+public class PriorityQueueLinked implements Comparable<PriorityQueueLinked> {
 	private Node head;
 	private Node tail;
 	private int size;
-	
-	public PriorityQueueLinked()
-	{
+
+	public PriorityQueueLinked() {
 		head = null;
 		tail = null;
 		size = -1;
@@ -13,33 +11,27 @@ public class PriorityQueueLinked implements Comparable<PriorityQueueLinked>
 
 	public void add(Comparable newEntry) {
 		Node node = new Node(newEntry);
-		if(isEmpty())
-		{
+		if (isEmpty()) {
 			node.next = head;
 			head = node;
 			tail = node;
 			size++;
-		}
-		else
-		{
+		} else {
 			Node temp = head;
 			head = node;
-			temp.next =  node;
+			temp.next = node;
 			size++;
-		}		
+		}
 	}
 
 	public Comparable remove() {
-		if(isEmpty())
-		{
+		if (isEmpty()) {
 			return null;
 		}
 		Node highest = null;
 		Node current = head;
-		while(current != null)
-		{
-			if(current.compareTo(current.next) > 0)
-			{
+		while (current != null) {
+			if (current.compareTo(current.next) > 0) {
 				highest = current;
 				current = current.next;
 			}
@@ -50,17 +42,14 @@ public class PriorityQueueLinked implements Comparable<PriorityQueueLinked>
 	}
 
 	public Comparable peek() {
-		
-		if(isEmpty())
-		{
+
+		if (isEmpty()) {
 			return null;
 		}
 		Node highest = null;
 		Node current = head;
-		while(current != null)
-		{
-			if(current.compareTo(current.next) > 0)
-			{
+		while (current != null) {
+			if (current.compareTo(current.next) > 0) {
 				highest = current;
 				current = current.next;
 			}
@@ -75,35 +64,34 @@ public class PriorityQueueLinked implements Comparable<PriorityQueueLinked>
 	public int getSize() {
 		return size;
 	}
-	
+
 	public void clear() {
-		if(!isEmpty())
-		{
-			while(head != null)
-			{
+		if (!isEmpty()) {
+			while (head != null) {
 				head.next = null;
 			}
 		}
-		
+
 	}
-	
+
 	public int compareTo(PriorityQueueLinked node) {
-		
+
 		return 0;
 	}
+
 	public class Node<T extends Comparable<T>> {
 		Node<T> next;
 		T data;
-		
-		public Node(T newEntry)
-		{
-            this.data  = newEntry;
-        }
+
+		public Node(T newEntry) {
+			this.data = newEntry;
+		}
+
 		public int compareTo(Node next2) {
-			
+
 			return 0;
 		}
-		
+
 	}
 
 }
